@@ -1,0 +1,20 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "Samsung s10 plus",
+            "brand": "Samsung",
+            "category": "Phones",
+            "createdAt": "20.03.2020",
+            "price": "350"
+        },
+        {
+            "id": "2",
+            "name": "IPhon 12",
+            "brand": "IPhon",
+            "category": "Phones",
+            "createdAt": "11.09.2022",
+            "price": "530"
+        }
+    ]
+}
