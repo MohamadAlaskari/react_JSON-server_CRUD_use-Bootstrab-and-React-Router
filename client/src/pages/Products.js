@@ -1,41 +1,54 @@
+import { useState } from 'react'
 
-const Products = () => {
+
+
+
+
+
+function Products()  {
+    const [content, setContent] = useState(<ProductList showList={showList} />)
+
+    function showList() {
+        setContent(<ProductList showList={showList} />)
+    }
+
+    function showForm() {
+        setContent(<ProductForm showForm={showForm} />);
+    }
+
     return (
         <>
-            <table class="container table table-dark table-hover table-striped table-active">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Brand</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Created at</th>
-                        <th scope="col">Price</th>
+            <div className="container my-5">
+                {content}
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
 
-                    </tr>
-                </tbody>
-            </table>
+            </div>
+
         </>
     )
 }
 
-function ProductList(){
+export function ProductList(props) {
+    return (
+        <>
+            <h2 className="text-center mb-3"> List of Products</h2>
+            <button onClick={() => props.showForm()} type='button' className="btn btn-primary me-2">Create</button>
+
+
+
+
+        </>
+    )
 
 }
-function ProductForm(){
+export function ProductForm(props) {
+    return (
+        <>
+            <h2 className="text-center mb-3">Create New Product</h2>
+            <button onClick={() => props.showList()} type='button' className="btn btn-secondary me-2">Cancel</button>
+        </>
+    )
 
 }
 
 export default Products
-export {ProductList}
